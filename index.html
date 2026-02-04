@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICIAAAA!!!</title>
+    <style>
+        body
+        {
+            padding:0 ;
+            margin:0;
+        }
+        #container
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding :0;
+            
+        }
+        .btn {
+            padding: 12px 24px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 8px; /* Zaokrąglone rogi */
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease; /* Płynne przejście koloru i cienia */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+        }
+
+        /* Przycisk Zielony */
+        .btn-green {
+            font-size: 20px;
+            background-color: #2ecc71;
+        }
+
+        .btn-green:hover {
+            background-color: #27ae60; /* Ciemniejszy odcień przy najechaniu */
+            transform: translateY(-2px); /* Delikatne uniesienie */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Przycisk Czerwony */
+        .btn-red {
+            font-size: 20px;
+            background-color: #e74c3c;
+        }
+
+        .btn-red:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Efekt kliknięcia dla obu */
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        #buttons
+        {
+            display: none;
+        }   
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <div id="content">
+            <h1 id="info">KLIKNIJ MNIE!!!</h1>
+            <img id="img" src="https://github.com/JaimeUnCroissant/walentynki/blob/main/closed.png" alt="KICIAAAA!!!">
+        </div>
+        <div id="buttons">
+            <button id="yes" class="btn btn-green">YESSS</button>
+            <button id="no" class="btn btn-red">NOŁ</button>
+        </div>
+    </div>
+
+    <script>
+
+        const img = document.getElementById('img');
+        const buttons = document.getElementById('buttons');
+        const content = document.getElementById('content');
+
+        let currentYesSize = 20;
+        let currentNoSize = 20;
+
+        img.addEventListener('click', () => {
+            document.getElementById('info').style.display = 'none';
+            img.src = 'https://github.com/JaimeUnCroissant/walentynki/blob/main/open.png';
+            content.innerHTML += "<video width='500' height='500' src='https://github.com/JaimeUnCroissant/walentynki/blob/main/gif.mp4' alt='KICIAAAA!!!'>"
+            buttons.style.display = 'block';
+        });
+
+        const yesButton = document.getElementById('yes');
+        const noButton = document.getElementById('no');
+
+        yesButton.addEventListener('click', () => {
+            buttons.innerHTML = "";
+            content.innerHTML = "<h1>KICIAAAA!!!</h1> <h3>Wiedziałem, że mnie kochasz :3</h3> <img width='500' height='500' src='https://github.com/JaimeUnCroissant/walentynki/blob/main/yay.png' alt='KICIAAAA!!!'> ";
+        });
+
+        noButton.addEventListener('click', () => {
+
+            currentYesSize *= 1.2;
+            currentNoSize *= 0.8;
+            yesButton.style.fontSize = currentYesSize + 'px';
+            noButton.style.fontSize = currentNoSize + 'px';
+        });
+    </script>
+</body>
+</html>
